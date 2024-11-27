@@ -3,20 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Ma Chanson</title>
+    <title>Karaoké Vidéo</title>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <h1>🎵 J'ai écrit une chanson ! 🎵</h1>
-    <p>Découvrez ma nouvelle chanson dans la vidéo ci-dessous :</p>
+    <h1>🎤 Karaoké : Rien N'est Plus Beau 🎤</h1>
+    <h2 class="subtitle">Produit Par Roelandt Kevin</h2>
     <div class="video-container">
-        <video controls id="songVideo">
-            <source src="../doc/Rienn'estplusbeau.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas la lecture vidéo.
+        <video controls id="karaokeVideo">
+            <source src="../doc/rienn'estplusbeaukaraoke.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de cette vidéo.
         </video>
     </div>
-    <button id="playButton">🎬 Écouter la chanson</button>
+    <div class="lyrics-container" id="lyrics">
+        <p class="placeholder-text">Bonne écoute !!!</p>
+    </div>
+    <div class="controls">
+        <button id="playPause">▶️ Play</button>
+        <button id="stop">⏹️ Stop</button>
+        <button id="download">⬇️ Télécharger</button>
+        <button id="pip">📺 PiP</button>
+        <button id="cast">📡 Cast</button>
+        <label for="playbackRate">Vitesse :
+            <select id="playbackRate">
+                <option value="0.5">0.5x</option>
+                <option selected value="1">1x</option>
+                <option value="1.5">1.5x</option>
+                <option value="2">2x</option>
+            </select>
+        </label>
+    </div>
 </div>
 <script src="script.js"></script>
 </body>
