@@ -1,0 +1,200 @@
+/* Style de base */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(45deg, #f0f8ff, #dcd6f7);
+    animation: backgroundAnimation 10s infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-image: linear-gradient(45deg, #f0f8ff, #dcd6f7);
+    }
+    50% {
+        background-image: linear-gradient(45deg, #ffccff, #ffcccc);
+    }
+    100% {
+        background-image: linear-gradient(45deg, #f0f8ff, #dcd6f7);
+    }
+}
+
+/* Conteneur principal */
+.container {
+    text-align: center;
+    background: white;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600px;
+    box-sizing: border-box; /* Permet de mieux gérer les espacements */
+}
+
+/* Titre principal */
+h1 {
+    color: #4CAF50;
+    font-size: 2.5em;
+    margin-bottom: 1em;
+}
+
+/* Texte d'introduction */
+.intro-text {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 1.5em;
+}
+
+/* Conteneur des boutons */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Style des boutons */
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1em 2em;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* Effet de survol des boutons */
+.btn:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+/* Effet au clic */
+.btn:active {
+    transform: scale(1);
+}
+
+/* Médias queries pour une meilleure adaptation aux petites résolutions */
+
+/* Pour les tablettes et petits écrans (600px ou moins) */
+@media screen and (max-width: 600px) {
+    body {
+        background-image: linear-gradient(45deg, #f0f8ff, #ffccff);
+    }
+
+    .container {
+        width: 90%;
+        padding: 1.5em;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .intro-text {
+        font-size: 1.1em;
+        margin-bottom: 1.2em;
+    }
+
+    .button-container {
+        gap: 15px;
+    }
+
+    .btn {
+        width: 80%;
+        font-size: 1em;
+    }
+}
+
+/* Pour les petits écrans mobiles (400px ou moins) */
+@media screen and (max-width: 400px) {
+    .btn {
+        width: 90%;
+        padding: 0.8em 1.5em;
+        font-size: 0.95em;
+    }
+
+    .intro-text {
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+}
+
+/* Ajout de l'animation d'apparition pour le conteneur */
+.container {
+    text-align: center;
+    background: white;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600px;
+    box-sizing: border-box;
+    animation: fadeIn 1.5s ease-out; /* Animation d'apparition */
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Ajout d'une animation pulsante pour les boutons */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Animation de rotation au survol */
+@keyframes rotateHover {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(3deg);
+    }
+}
+
+/* Mise à jour du style des boutons */
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1em 2em;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease, transform 0.2s;
+    width: 70%;
+    margin: 0 auto;
+    animation: pulse 2s infinite; /* Effet pulsant */
+}
+
+/* Effet de survol des boutons */
+.btn:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+    animation: rotateHover 0.3s forwards; /* Effet de rotation */
+}

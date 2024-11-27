@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Page de gestion des trajets de covoiturage" name="description">
+    <title>COCOVOIT BY ROELANDT KEVIN</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
+    <style>
+        #pilotForm, #covoitureurView, #trajetListSection, #inscritsSection, #map {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Bienvenue sur la Page COCOVOIT</h1>
+    <img src="../doc/img_logo.png" alt="logo" class="logo">
+    <p>Cliquez sur le lien ci-dessous pour retourner à la page d'accueil.</p>
+    <button type="button"><a href="../../ACCUEIL/www/index.html">Retourner à la page d'accueil</a></button>
+</header>
+<main>
+    <section id="registration">
+        <h2>Gestion des Trajets</h2>
+        <button onclick="register('pilote')" type="button">S'inscrire en tant que pilote</button>
+        <button onclick="register('covoitureur')" type="button">S'inscrire en tant que covoitureur</button>
+        <button onclick="showSection('trajetListSection')" type="button">Voir les trajets</button>
+        <button onclick="showSection('inscritsSection')" type="button">Voir les inscrits</button>
+    </section>
+    <section id="pilotForm">
+        <h2>Ajouter un nouveau trajet</h2>
+        <form id="addTrajetForm">
+            <label for="usernamePilot">Nom d'utilisateur :</label>
+            <input type="text" id="usernamePilot" placeholder="Votre nom" required><br>
+            <label for="depart">Adresse de départ :</label>
+            <input type="text" id="depart" placeholder="Départ" required><br>
+            <label for="destination">Adresse de destination :</label>
+            <input type="text" id="destination" placeholder="Destination" required><br>
+            <label for="places">Nombre de places disponibles :</label>
+            <input id="places" min="1" placeholder="Places disponibles" required type="number"><br>
+            <label for="departureDate">Date de départ :</label>
+            <input type="date" id="departureDate" required><br>
+            <label for="departureTime">Heure de départ :</label>
+            <input type="time" id="departureTime" required><br>
+            <label for="fuelType">Type de carburant :</label>
+            <select id="fuelType" required>
+                <option value="petrol">Essence</option>
+                <option value="diesel">Diesel</option>
+                <option value="lpg">GPL</option>
+                <option value="electric">Électrique</option>
+            </select><br>
+            <label for="fuelConsumption">Consommation de carburant (L/100km) :</label>
+            <input id="fuelConsumption" min="1" placeholder="Consommation (L/100km)" required step="0.1"
+                   type="number"><br>
+            <button type="button" onclick="addTrajet()">Ajouter le trajet</button>
+        </form>
+        <button onclick="goBack()" type="button">Retour à l'inscription</button>
+    </section>
+    <section id="covoitureurView">
+        <h2>Réserver un trajet</h2>
+        <form id="registerForm">
+            <label for="usernameCopilot">Nom du covoitureur :</label>
+            <input id="usernameCopilot" required type="text"><br>
+            <label for="trajetSelect">Sélectionner un trajet :</label>
+            <select id="trajetSelect" required></select><br>
+            <div id="trajetDetails">
+                <p>Sélectionnez un trajet pour voir les détails</p>
+            </div>
+            <label for="seats">Nombre de places:</label>
+            <input id="seats" min="1" required type="number"><br>
+            <label for="adresseReservation">Adresse de montée :</label>
+            <input id="adresseReservation" required type="text"><br>
+            <label for="adresseArret">Adresse de l'arrêt :</label>
+            <input id="adresseArret" type="text"><br>
+            <button type="button" onclick="registerUserAndReserve()">Réserver</button>
+        </form>
+        <button onclick="goBack()" type="button">Retour à l'inscription</button>
+    </section>
+    <section id="trajetListSection">
+        <h2>Liste des trajets</h2>
+        <ul id="trajetList"></ul>
+        <button onclick="goBack()" type="button">Retour à l'inscription</button>
+    </section>
+    <section id="inscritsSection">
+        <h2>Liste des inscrits</h2>
+        <label for="selectTrajetForInscrits"></label>
+        <select id="selectTrajetForInscrits"></select>
+        <div id="inscritsList"></div>
+        <button onclick="goBack()" type="button">Retour à l'inscription</button>
+    </section>
+    <div id="map" style="height: 500px;"></div>
+</main>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

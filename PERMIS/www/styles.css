@@ -1,0 +1,19 @@
+/* Button styles */
+.button-container {
+    text-align: center; /* Center the button */
+    margin-top: 30px; /* Space above the button */
+}
+
+.next-button {
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for button */
+    text-decoration: none; /* No underline */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1.2em; /* Increase font size */
+    transition: background-color 0.3s ease; /* Smooth background change */
+}
+
+.next-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

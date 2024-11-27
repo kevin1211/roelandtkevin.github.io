@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Les limitations de vitesses</title>
+    <link href="styles.css" rel="stylesheet"> <!-- Optional: Link to your CSS file -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4; /* Light background for contrast */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF; /* Blue color for the title */
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: center; /* Centered text for the paragraph */
+            margin: 0 0 20px;
+            font-size: 1.1em;
+        }
+
+        table {
+            width: 100%; /* Full width */
+            border-collapse: collapse; /* Merge borders */
+            margin: 20px 0; /* Space around the table */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        th, td {
+            border: 1px solid #007BFF; /* Blue border */
+            padding: 15px; /* Space inside cells */
+            text-align: center; /* Center text */
+            transition: background-color 0.3s; /* Smooth background transition */
+        }
+
+        th {
+            background-color: #007BFF; /* Header background color */
+            color: white; /* Header text color */
+            font-size: 1.2em; /* Slightly larger font for header */
+        }
+
+        td {
+            background-color: #f9f9f9; /* Cell background color */
+            font-size: 1em; /* Standard font size for cells */
+        }
+
+        /* Optional: Add hover effect */
+        td:hover {
+            background-color: #e9ecef; /* Light gray on hover */
+        }
+
+        img {
+            max-width: 80%; /* Responsive image size */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Rounded corners for images */
+            margin-bottom: 5px; /* Space between image and text */
+        }
+
+        /* Promotion section */
+        .promo {
+            background-color: #007BFF; /* Blue background */
+            color: white; /* White text */
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Les limitations de vitesses</h1>
+
+<p>
+    Dans cet tableau, vous trouverez les limitations de vitesses en fonction des différentes régions de Belgique.
+    Les vitesses sont spécifiées pour les routes pour automobiles, en agglomération, hors agglomération et sur
+    autoroute.
+    Respecter ces limitations est crucial pour assurer la sécurité de tous les usagers de la route.
+</p>
+
+<table>
+    <thead>
+    <tr>
+        <th>
+            <img alt="automobile" src="../doc/automobile.jpg"/>
+            <p>Route pour automobile (pas de vitesse minimum)</p>
+        </th>
+        <th>
+            <img alt="agglomeration" src="../doc/agglomeration.avif"/>
+            <p>En agglomération</p>
+        </th>
+        <th>
+            <img alt="horsagglomeration" src="../doc/horsagglomeration.jpg"/>
+            <p>Hors agglomération</p>
+        </th>
+        <th>
+            <img alt="autoroute" src="../doc/autoroute.jpg"/>
+            <p>Autoroute</p>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <p>Bruxelles (capitale)</p>
+        </td>
+        <td>30 km/h</td>
+        <td>70 km/h</td>
+        <td>120 km/h</td>
+    </tr>
+    <tr>
+        <td>
+            <p>Flandre (Région flamande)</p>
+        </td>
+        <td>50 km/h</td>
+        <td>70 km/h</td>
+        <td>120 km/h</td>
+    </tr>
+    <tr>
+        <td>
+            <p>Wallonie (Région wallonne)</p>
+        </td>
+        <td>50 km/h</td>
+        <td>90 km/h</td>
+        <td>120 km/h</td>
+    </tr>
+    </tbody>
+</table>
+<div class="promo">
+    Respectez les limitations de vitesses pour garantir votre sécurité et celle des autres.
+    Conduisez prudemment et restez vigilant sur la route !
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+/* Mise en page générale */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9; /* Couleur de fond douce */
+    color: #333; /* Texte en couleur sombre pour contraster avec le fond */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff; /* Fond blanc pour la zone de contenu */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce pour l'effet de profondeur */
+    padding: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Conteneur des boutons */
+.button-container {
+    margin-top: 20px;
+}
+
+/* Style des boutons */
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Effet au survol du bouton */
+.button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4);
+    transform: translateY(-3px); /* Effet de soulèvement */
+}
+
+/* Media queries pour responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Utiliser 90% de la largeur sur les écrans plus petits */
+    }
+
+    .button {
+        font-size: 1rem;
+        padding: 12px 25px; /* Ajuster la taille des boutons pour les petits écrans */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem; /* Réduire la taille du titre pour les très petits écrans */
+    }
+
+    p {
+        font-size: 1rem; /* Réduire la taille du texte pour les petits écrans */
+    }
+}
