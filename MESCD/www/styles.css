@@ -17,7 +17,7 @@ body {
 /* Grille des CD */
 .cd-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
@@ -29,11 +29,24 @@ body {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .cd-item:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
 }
 
@@ -66,66 +79,13 @@ body {
     line-height: 1.5;
     white-space: pre-wrap;
     margin-top: 20px;
-    color: #ccc;
-}
-
-/* Paroles */
-#cdLyrics {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    white-space: pre-wrap;
-    margin-top: 20px;
-    color: #ccc;
-
-    /* Animation d'apparition */
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-/* Paroles affichées */
-#cdLyrics.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-#cdLyrics {
-    color: transparent;
-    background-image: linear-gradient(to right, #ff4081, #4caf50);
-    -webkit-background-clip: text;
-    animation: gradientText 3s infinite;
-}
-
-@keyframes gradientText {
-    0%, 100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-}
-
-/* Paroles avec dégradé dynamique */
-#cdLyrics {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    white-space: pre-wrap;
-    margin-top: 20px;
-
-    /* Transition fluide */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-
-    /* Dégradé progressif */
-    background-image: linear-gradient(to right, #ff4081, #4caf50, #2196f3);
-    background-size: 200% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    /* Animation */
-    animation: gradientText 3s linear infinite;
 }
 
 /* Paroles affichées */
@@ -135,6 +95,15 @@ body {
 }
 
 /* Animation du dégradé */
+#cdLyrics {
+    background-image: linear-gradient(to right, #ff4081, #4caf50, #2196f3);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradientText 3s linear infinite;
+}
+
 @keyframes gradientText {
     0% {
         background-position: 0% 50%;
@@ -142,4 +111,42 @@ body {
     100% {
         background-position: 100% 50%;
     }
+}
+
+/* Boutons */
+#downloadButton,
+#pipButton {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#downloadButton:hover,
+#pipButton:hover {
+    background-color: #e91e63;
+}
+
+/* Responsivité */
+@media screen and (max-width: 768px) {
+    .cd-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cd-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ajout du style pour le message d'erreur */
+#videoError {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    font-weight: bold;
 }
