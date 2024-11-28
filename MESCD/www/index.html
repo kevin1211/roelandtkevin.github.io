@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Bibliothèque de CD</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="library-container">
+    <h1>🎵 Bibliothèque de CD 🎵</h1>
+    <h2>Sélectionnez un CD pour voir ses paroles !</h2>
+    <h3>Produit Par Roelandt Kévin</h3>
+    <div class="cd-grid">
+        <div class="cd-item" data-cd="cd1">
+            <img alt="CD 1" src="../doc/cd1.png">
+            <p>CD 1 : Rien N'est Plus Beau</p>
+        </div>
+        <div class="cd-item" data-cd="cd2">
+            <img alt="CD 2" src="../doc/cd2.png">
+            <p>CD 2 : Les Rose Fanées</p>
+        </div>
+        <div class="cd-item" data-cd="cd3">
+            <img alt="CD 3" src="../doc/cd3.png">
+            <p>CD 3 : Fais-Moi Une Place</p>
+        </div>
+        <div class="cd-item" data-cd="cd4">
+            <img alt="CD 4" src="../doc/cd4.png">
+            <p>CD 4 : Hey, Hola</p>
+        </div>
+    </div>
+    <div class="lyrics-display">
+        <h2 id="cdTitle">Sélectionnez un CD</h2>
+        <h3>Bonne lecture !</h3>
+        <video controls id="cdVideo">
+            <source id="cdAudioSource" src="" type="video/mp4">
+            Votre navigateur ne supporte pas cette vidéo.
+        </video>
+        <p id="cdLyrics">Les paroles du CD sélectionné apparaîtront ici.</p>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
