@@ -1,6 +1,6 @@
 // Importation de la classe CelebrationManager du package balloon-confetti-celebration
 import CelebrationManager
-    from 'kevin1211.github.io/MYBIRTDAY/www/node_modules/balloon-confetti-celebration/managers/celebrationManager.js';
+    from 'kevin1211.github.io/BIRTHDAY/www/node_modules/balloon-confetti-celebration/managers/celebrationManager.js';
 
 // Configuration des options pour l'animation des ballons et des confettis
 const options = {

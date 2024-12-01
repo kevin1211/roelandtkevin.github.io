@@ -8,14 +8,21 @@ body {
 }
 
 h1 {
-    color: #ff6347;
+    color: #2ecc71;
+    font-size: 3em;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #3498db;
     font-size: 3em;
     margin-top: 20px;
 }
 
 p {
     font-size: 1.5em;
-    color: #333;
+    margin-top: 20px;
+    color: #1d1d1d;
 }
 
 /* Canvas pour l'animation des confettis */
