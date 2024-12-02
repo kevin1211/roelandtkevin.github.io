@@ -1,12 +1,49 @@
-// Sélection des éléments
+// Sélectionner les éléments nécessaires
+const likeButtons = document.querySelectorAll('.like-button');
+const dislikeButtons = document.querySelectorAll('.dislike-button');
+
+// Fonction pour mettre à jour les compteurs
+function updateCounter(button, counterId) {
+    const counter = document.getElementById(counterId);
+    let count = parseInt(counter.textContent);
+
+    // Incrémenter ou décrémenter selon le type de bouton
+    if (button.classList.contains('like-button')) {
+        count += 1;
+    } else if (button.classList.contains('dislike-button')) {
+        count -= 1;
+    }
+
+    // Mettre à jour le compteur
+    counter.textContent = count;
+}
+
+// Ajouter des événements de clic aux boutons Like et Dislike
+likeButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        event.stopPropagation();  // Empêcher l'événement de propagation
+        const cdId = event.target.getAttribute('data-cd'); // Récupérer l'id du CD
+        const counterId = `like-count-${cdId}`; // Identifier le compteur du CD
+        updateCounter(event.target, counterId);
+    });
+});
+
+dislikeButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        event.stopPropagation();  // Empêcher l'événement de propagation
+        const cdId = event.target.getAttribute('data-cd'); // Récupérer l'id du CD
+        const counterId = `dislike-count-${cdId}`; // Identifier le compteur du CD
+        updateCounter(event.target, counterId);
+    });
+});
+
+// Sélection des éléments CD
 const cds = document.querySelectorAll('.cd-item');
 const cdTitle = document.getElementById('cdTitle');
 const cdLyrics = document.getElementById('cdLyrics');
 const cdVideo = document.getElementById('cdVideo');
 const cdAudioSource = document.getElementById('cdAudioSource');
 const videoError = document.getElementById('videoError');
-const downloadButton = document.getElementById('downloadButton');
-const pipButton = document.getElementById('pipButton');
 
 // Ajouter des événements de clic pour chaque CD
 cds.forEach(cd => {
@@ -60,64 +97,5 @@ cds.forEach(cd => {
                 cdVideo.style.display = 'none';
                 videoError.style.display = 'block';
             });
-    });
-});
-
-// Gestion du téléchargement
-downloadButton.addEventListener('click', () => {
-    const currentVideoSource = cdAudioSource.src;
-    const link = document.createElement('a');
-    link.href = currentVideoSource;
-    link.download = currentVideoSource.split('/').pop();
-    link.click();
-});
-
-// Gestion du mode PiP
-pipButton.addEventListener('click', () => {
-    if (cdVideo !== document.pictureInPictureElement) {
-        cdVideo.requestPictureInPicture().catch(error => {
-            console.log('Erreur PiP :', error);
-        });
-    } else {
-        document.exitPictureInPicture().catch(error => {
-            console.log('Erreur PiP exit :', error);
-        });
-    }
-});
-
-// Sélectionner les boutons like et dislike
-const likeButtons = document.querySelectorAll('.like-button');
-const dislikeButtons = document.querySelectorAll('.dislike-button');
-
-// Fonction pour mettre à jour les compteurs
-function updateCounter(button, counterId) {
-    const counter = document.getElementById(counterId);
-    let count = parseInt(counter.textContent);
-
-    // Incrémenter ou décrémenter selon le type de bouton
-    if (button.classList.contains('like-button')) {
-        count += 1;
-    } else if (button.classList.contains('dislike-button')) {
-        count -= 1;
-    }
-
-    // Mettre à jour le compteur
-    counter.textContent = count;
-}
-
-// Ajouter des événements de clic aux boutons Like et Dislike
-likeButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        const cdId = event.target.getAttribute('data-cd'); // Récupérer l'id du CD
-        const counterId = `like-count-${cdId}`; // Identifier le compteur du CD
-        updateCounter(event.target, counterId);
-    });
-});
-
-dislikeButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        const cdId = event.target.getAttribute('data-cd'); // Récupérer l'id du CD
-        const counterId = `dislike-count-${cdId}`; // Identifier le compteur du CD
-        updateCounter(event.target, counterId);
     });
 });
