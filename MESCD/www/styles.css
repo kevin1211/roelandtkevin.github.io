@@ -24,12 +24,10 @@ body {
 
 /* Grille spécifique aux 2 lignes */
 .cd-grid > .cd-item:nth-child(-n+4) {
-    /* Les 4 premiers CD dans la première ligne */
     grid-row: 1;
 }
 
 .cd-grid > .cd-item:nth-child(n+5) {
-    /* Les 4 derniers CD dans la deuxième ligne */
     grid-row: 2;
 }
 
@@ -56,7 +54,6 @@ body {
         transform: translateY(0);
     }
 }
-
 
 .cd-item:hover {
     transform: scale(1.05);
@@ -126,23 +123,6 @@ body {
     }
 }
 
-/* Boutons */
-#downloadButton,
-#pipButton {
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-#downloadButton:hover,
-#pipButton:hover {
-    background-color: #e91e63;
-}
-
 /* Responsivité */
 @media screen and (max-width: 768px) {
     .cd-grid {
@@ -162,47 +142,4 @@ body {
     font-size: 1.2rem;
     margin-top: 20px;
     font-weight: bold;
-}
-
-/* Style des boutons Like/Dislike */
-.like-dislike {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.like-button {
-    background-color: #00ff09;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-.dislike-button {
-    background-color: #ff0000;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-.like-button:hover {
-    background-color: #00ff09;
-}
-
-.dislike-button:hover {
-    background-color: #ff0000;
-}
-
-span {
-    font-size: 1.2rem;
-    color: white;
-    margin-top: 5px;
 }
