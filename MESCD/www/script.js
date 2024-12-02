@@ -2,7 +2,7 @@
 const likeButtons = document.querySelectorAll('.like-button');
 const dislikeButtons = document.querySelectorAll('.dislike-button');
 
-// Fonction pour mettre à jour les compteurs
+// Fonction pour mettre à jour les compteurs et les sauvegarder dans localStorage
 function updateCounter(button, counterId) {
     const counter = document.getElementById(counterId);
     let count = parseInt(counter.textContent);
@@ -16,6 +16,14 @@ function updateCounter(button, counterId) {
 
     // Mettre à jour le compteur
     counter.textContent = count;
+
+    // Sauvegarder le nouveau compteur dans localStorage
+    const cdId = button.getAttribute('data-cd');
+    if (button.classList.contains('like-button')) {
+        localStorage.setItem(`like-count-${cdId}`, count);  // Enregistrer le compteur de "like"
+    } else if (button.classList.contains('dislike-button')) {
+        localStorage.setItem(`dislike-count-${cdId}`, count);  // Enregistrer le compteur de "dislike"
+    }
 }
 
 // Ajouter des événements de clic aux boutons Like et Dislike
@@ -36,6 +44,30 @@ dislikeButtons.forEach(button => {
         updateCounter(event.target, counterId);
     });
 });
+
+// Fonction pour charger les compteurs depuis localStorage
+function loadCounters() {
+    const cds = document.querySelectorAll('.cd-item');
+
+    cds.forEach(cd => {
+        const cdId = cd.getAttribute('data-cd');
+
+        // Charger les compteurs de like et dislike depuis localStorage
+        const likeCount = localStorage.getItem(`like-count-${cdId}`);
+        const dislikeCount = localStorage.getItem(`dislike-count-${cdId}`);
+
+        // Si les valeurs existent, les afficher dans les compteurs respectifs
+        if (likeCount !== null) {
+            document.getElementById(`like-count-${cdId}`).textContent = likeCount;
+        }
+        if (dislikeCount !== null) {
+            document.getElementById(`dislike-count-${cdId}`).textContent = dislikeCount;
+        }
+    });
+}
+
+// Charger les compteurs lors du chargement de la page
+window.addEventListener('load', loadCounters);
 
 // Sélection des éléments CD
 const cds = document.querySelectorAll('.cd-item');
