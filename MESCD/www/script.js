@@ -84,3 +84,40 @@ pipButton.addEventListener('click', () => {
         });
     }
 });
+
+// Sélectionner les boutons like et dislike
+const likeButtons = document.querySelectorAll('.like-button');
+const dislikeButtons = document.querySelectorAll('.dislike-button');
+
+// Fonction pour mettre à jour les compteurs
+function updateCounter(button, counterId) {
+    const counter = document.getElementById(counterId);
+    let count = parseInt(counter.textContent);
+
+    // Incrémenter ou décrémenter selon le type de bouton
+    if (button.classList.contains('like-button')) {
+        count += 1;
+    } else if (button.classList.contains('dislike-button')) {
+        count -= 1;
+    }
+
+    // Mettre à jour le compteur
+    counter.textContent = count;
+}
+
+// Ajouter des événements de clic aux boutons Like et Dislike
+likeButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const cdId = event.target.getAttribute('data-cd'); // Récupérer l'id du CD
+        const counterId = `like-count-${cdId}`; // Identifier le compteur du CD
+        updateCounter(event.target, counterId);
+    });
+});
+
+dislikeButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        const cdId = event.target.getAttribute('data-cd'); // Récupérer l'id du CD
+        const counterId = `dislike-count-${cdId}`; // Identifier le compteur du CD
+        updateCounter(event.target, counterId);
+    });
+});
