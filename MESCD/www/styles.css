@@ -17,9 +17,20 @@ body {
 /* Grille des CD */
 .cd-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
     gap: 20px;
     margin-top: 20px;
+}
+
+/* Grille spécifique aux 2 lignes */
+.cd-grid > .cd-item:nth-child(-n+4) {
+    /* Les 4 premiers CD dans la première ligne */
+    grid-row: 1;
+}
+
+.cd-grid > .cd-item:nth-child(n+5) {
+    /* Les 4 derniers CD dans la deuxième ligne */
+    grid-row: 2;
 }
 
 .cd-item {
@@ -34,6 +45,7 @@ body {
     animation: fadeIn 1s forwards;
 }
 
+/* Animation fadeIn pour chaque élément */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -44,6 +56,7 @@ body {
         transform: translateY(0);
     }
 }
+
 
 .cd-item:hover {
     transform: scale(1.05);
