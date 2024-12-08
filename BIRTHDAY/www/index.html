@@ -1,20 +1,50 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Happy Birthday</title>
+    <link href="node_modules/balloon-confetti-celebration/assets/dist/css/styles.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
 </head>
 <body>
 <h1>C'est TON Anniversaire !!! 🥳🎂🎁</h1>
-<H2>22 ans 🎉✨🎈</H2>
-<p>Joyeux Anniversaire à TOI !!!</p>
-<P>Passe une excellente journée.</P>
-<canvas id="my-canvas"></canvas>
-<div id="balloon-confetti-celebration"></div>
-<script src="script.js" type="module"></script>
+<h2>22 ans 🎉✨🎈</h2>
+<div>
+    <button id="celebrate">Celebrate</button>
+    <div id="balloon-confetti-celebration"></div>
+</div>
+<script type="module">
+    import CelebrationManager from './node_modules/balloon-confetti-celebration/managers/celebrationManager.js';
+
+    const options = {
+        containerId: 'balloon-confetti-celebration',
+        balloonCount: 40,
+        modalDelay: 500,
+        confettiColors: [{front: "#ffc400", back: "#ffc400"}],
+        confettiParams: {
+            delay: 1700,
+            number: 120,
+            size: {x: [10, 30], y: [15, 25]},
+            initSpeed: 35,
+            gravity: 0.65,
+            drag: 0.08,
+            terminalVelocity: 6,
+            flipSpeed: 0.017,
+        }
+    };
+
+    const celebrateButton = document.getElementById("celebrate");
+    celebrateButton.addEventListener('click', () => {
+        const celebrationManager = new CelebrationManager(options);
+        celebrationManager.setupConfettiCanvas();
+        celebrationManager.startCelebration();
+
+        setTimeout(shoot, 0);
+        setTimeout(shoot, 100);
+        setTimeout(shoot, 200);
+    }, false);
+
+</script>
 </body>
 </html>

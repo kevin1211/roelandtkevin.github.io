@@ -1,4 +1,4 @@
-// Initialisation de la fonction confetti
+/*// Initialisation de la fonction confetti
 const confettiDefaults = {
     origin: {y: 0.7}
 };
@@ -55,4 +55,31 @@ function createBalloon() {
 }
 
 // Créer des ballons à intervalles réguliers
-setInterval(createBalloon, 500);
+setInterval(createBalloon, 500);*/
+
+import CelebrationManager from './node_modules/balloon-confetti-celebration/managers/celebrationManager.js';
+
+const options = {
+    containerId: 'balloon-confetti-celebration',
+    modalUrl: 'https://cdn.pixabay.com/photo/2023/11/29/12/29/cartoon-8419487_1280.jpg',
+    balloonCount: 40,
+    modalDelay: 500,
+    confettiColors: [{front: "#FEDB37", back: "#FDB931"}],
+    confettiParams: {
+        delay: 1700,
+        number: 120,
+        size: {x: [10, 30], y: [15, 25]},
+        initSpeed: 35,
+        gravity: 0.65,
+        drag: 0.08,
+        terminalVelocity: 6,
+        flipSpeed: 0.017,
+    }
+};
+
+const celebrateButton = document.getElementById("celebrate");
+celebrateButton.addEventListener('click', () => {
+    const celebrationManager = new CelebrationManager(options);
+    celebrationManager.setupConfettiCanvas();
+    celebrationManager.startCelebration();
+}, false);
