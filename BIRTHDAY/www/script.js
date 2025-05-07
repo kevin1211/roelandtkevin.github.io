@@ -1,14 +1,16 @@
+import CelebrationManager from './node_modules/balloon-confetti-celebration/managers/celebrationManager.js';
+
 // Configuration centrale
 const confettiOptions = {
     containerId: 'balloon-confetti-celebration',
     modalUrl: 'https://cdn.pixabay.com/photo/2023/11/29/12/29/cartoon-8419487_1280.jpg',
     balloonCount: 40,
     modalDelay: 500,
-    confettiColors: [{front: "#FEDB37", back: "#FDB931"}],
+    confettiColors: [{ front: "#FEDB37", back: "#FDB931" }],
     confettiParams: {
         delay: 1700,
         number: 120,
-        size: {x: [10, 30], y: [15, 25]},
+        size: { x: [10, 30], y: [15, 25] },
         initSpeed: 35,
         gravity: 0.65,
         drag: 0.08,
@@ -49,9 +51,9 @@ class Confetti {
             x: this.rand(confettiParams.size.x[0], confettiParams.size.x[1]),
             y: this.rand(confettiParams.size.y[0], confettiParams.size.y[1]),
         };
-        this.position = {x: clickPosition[0], y: clickPosition[1]};
+        this.position = { x: clickPosition[0], y: clickPosition[1] };
         this.rotation = this.rand(0, 2 * Math.PI);
-        this.scale = {x: 1, y: 1};
+        this.scale = { x: 1, y: 1 };
         this.velocity = {
             x: this.rand(-confettiParams.initSpeed, confettiParams.initSpeed) * 0.4,
             y: this.rand(-confettiParams.initSpeed, confettiParams.initSpeed),
