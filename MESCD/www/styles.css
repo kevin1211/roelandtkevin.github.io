@@ -134,3 +134,25 @@ body {
     margin-top: 20px;
     font-weight: bold;
 }
+
+button {
+    background-color: #222;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    animation: fadeInButton 2s ease-in-out;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #222;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
