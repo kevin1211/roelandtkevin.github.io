@@ -1,4 +1,4 @@
-/* Styles généraux */
+/* Structure générale */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -7,28 +7,40 @@ body {
     background-color: #f0f8ff;
 }
 
-h1, h2 {
-    font-size: 3em;
-    margin-top: 20px;
-}
-
 h1 {
+    font-size: 3em;
     color: #2ecc71;
+    margin-top: 20px;
 }
 
 h2 {
+    font-size: 2em;
     color: #3498db;
+    margin-top: 10px;
 }
 
-p {
+.controls {
+    margin-top: 30px;
+    z-index: 2;
+    position: relative;
+}
+
+button#celebrate {
     font-size: 1.5em;
-    margin-top: 20px;
-    color: #1d1d1d;
+    padding: 0.5em 1em;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-/* Canvas pour animations (confettis et ballons) */
-canvas,
-#balloon-container {
+button#celebrate:hover {
+    background-color: #e91e63;
+}
+
+/* Canvas et Ballons */
+#confetti, #balloon-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -38,42 +50,81 @@ canvas,
     z-index: 1;
 }
 
-/* Styles pour les ballons */
 #balloon-container {
-    height: 100vh;
-    padding: 1em;
-    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    transition: opacity 500ms;
 }
 
 .balloon {
-    height: 125px;
     width: 125px;
+    height: 125px;
     position: relative;
-    cursor: url(https://cdn-icons-png.flaticon.com/32/2972/2972166.png) 0 32, pointer;
     border-radius: 50% 70% 50% 70% / 50% 70% 10%;
-    background: radial-gradient(ellipse farthest-corner at left bottom, #7C601F 3%, #EDC969 5%, #7C601F 17%, #8A6E31 40%, transparent 60%),
-    radial-gradient(ellipse farthest-corner at top right, #FFFFFE 0%, #FFFFAB 17%, #D1B464 40%, #7C601F 80%);
+    background: radial-gradient(ellipse at left bottom, #7C601F 3%, #EDC969 5%, #7C601F 17%, #8A6E31 40%, transparent 60%),
+    radial-gradient(ellipse at top right, #FFFFFE 0%, #FFFFAB 17%, #D1B464 40%, #7C601F 80%);
     box-shadow: inset -10px -10px 30px rgba(0, 0, 0, 0.2),
     inset 10px 10px 20px rgba(255, 255, 255, 0.5),
     0 10px 15px rgba(0, 0, 0, 0.3);
 }
 
-.balloon:after {
+.balloon::after {
     content: "🎗";
-    text-align: center;
-    display: block;
     position: absolute;
-    color: inherit;
-    right: -6px;
     bottom: -1px;
+    right: -6px;
     font-size: 13px;
 }
 
-/* Animations pour les ballons */
+/* Modal */
+.celebrationmodal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(55, 71, 79, 0.5);
+    animation: bounceIn 0.75s;
+    z-index: 999;
+}
+
+.celebrationmodal-container {
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    background-size: cover;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    box-shadow: 0 3px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .celebrationmodal-container {
+        width: 170px;
+        height: 260px;
+    }
+}
+
+.celebration-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.celebration-close button {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+.celebration-close button:hover {
+    color: #000;
+}
+
+/* Animations */
 @keyframes float {
     from {
         transform: translateY(100vh) rotate(var(--rotate-angle, 0deg));
@@ -100,58 +151,4 @@ canvas,
     100% {
         transform: translateY(0) scale(1);
     }
-}
-
-/* Modal de célébration */
-.celebrationmodal {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    animation: bounceIn 0.75s;
-    background-color: rgba(55, 71, 79, .5);
-}
-
-.celebrationmodal .celebrationmodal-container {
-    padding: 3rem 5rem;
-    background-color: #ffffff;
-    width: 400px;
-    height: 500px;
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -45%);
-    border-radius: 10px;
-    box-shadow: 0 3px 30px rgba(0, 0, 0, 0.2);
-    background-repeat: round;
-}
-
-@media (max-width: 768px) {
-    .celebrationmodal .celebrationmodal-container {
-        width: 170px;
-        height: 260px;
-    }
-}
-
-.celebration-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.celebration-close button {
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #333;
-}
-
-.celebration-close button:hover {
-    color: #000;
 }

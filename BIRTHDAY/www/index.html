@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Happy Birthday</title>
+    <title>Joyeux Anniversaire !</title>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 <h1>C'est TON Anniversaire !!! 🎂🎁</h1>
-<h2>✨ 22 ans🎈</h2>
-<div>
+<h2>✨ 22 ans 🎈</h2>
+<div class="controls">
     <button id="celebrate">🎉 Celebrate 🥳</button>
-    <div id="balloon-container"></div>
-    <canvas id="confetti"></canvas>
 </div>
-<script src="script.js"></script>
+<canvas id="confetti"></canvas>
+<div id="balloon-container"></div>
+<div class="celebrationmodal" id="modal">
+    <div class="celebrationmodal-container"
+         style="background-image: url('https://cdn.pixabay.com/photo/2023/11/29/12/29/cartoon-8419487_1280.jpg');">
+        <div class="celebration-close">
+            <button id="closeModal">&times;</button>
+        </div>
+    </div>
+</div>
+<script src="script.js" type="module"></script>
 </body>
 </html>
