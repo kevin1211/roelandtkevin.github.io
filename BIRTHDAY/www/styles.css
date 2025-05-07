@@ -55,14 +55,14 @@ canvas,
     position: relative;
     cursor: url(https://cdn-icons-png.flaticon.com/32/2972/2972166.png) 0 32, pointer;
     border-radius: 50% 70% 50% 70% / 50% 70% 10%;
-    background: radial-gradient(ellipse farthest-corner at left bottom, #7C601F 3%, #EDC969 5%, #7C601F 17%, #8A6E31 40%, transparent 60%),
+    background: radial-gradient(ellipse farthest-corner at bottom left, #7C601F 3%, #EDC969 5%, #7C601F 17%, #8A6E31 40%, transparent 60%),
     radial-gradient(ellipse farthest-corner at top right, #FFFFFE 0%, #FFFFAB 17%, #D1B464 40%, #7C601F 80%);
     box-shadow: inset -10px -10px 30px rgba(0, 0, 0, 0.2),
     inset 10px 10px 20px rgba(255, 255, 255, 0.5),
     0 10px 15px rgba(0, 0, 0, 0.3);
 }
 
-.balloon:after {
+.balloon::after {
     content: "🎗";
     text-align: center;
     display: block;
@@ -144,7 +144,7 @@ canvas,
     right: 10px;
 }
 
-.celebration-close button {
+.celebration-button-close {
     font-size: 24px;
     background: none;
     border: none;
@@ -152,6 +152,6 @@ canvas,
     color: #333;
 }
 
-.celebration-close button:hover {
+.celebration-button-close:hover {
     color: #000;
 }

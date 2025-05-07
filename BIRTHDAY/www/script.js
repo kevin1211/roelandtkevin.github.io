@@ -15,11 +15,12 @@ const confettiOptions = {
         terminalVelocity: 6,
         flipSpeed: 0.017,
     },
-    confettiId: "confetti", // ID pour l'élément canvas
+    confettiId: "confetti"
 };
 
 // Gère la célébration au clic
 const celebrateButton = document.getElementById("celebrate");
+
 celebrateButton.addEventListener('click', () => {
     const celebrationManager = new ConfettiManager(confettiOptions);
     celebrationManager.setupConfettiCanvas();
@@ -28,7 +29,7 @@ celebrateButton.addEventListener('click', () => {
     // Ajouter les confettis à intervalles
     const addConfettiInterval = setInterval(() => {
         celebrationManager.addConfetti();
-    }, 100); // Ajouter un confetti toutes les 100ms
+    }, 100);
 
     // Arrêter après 2 secondes pour éviter une surcharge
     setTimeout(() => clearInterval(addConfettiInterval), 2000);
@@ -60,6 +61,7 @@ class Confetti {
         if (this.position.y <= container.h) {
             this.velocity.y = -Math.abs(this.velocity.y);
         }
+
         this.terminalVelocity = this.rand(1, 1.5) * confettiParams.terminalVelocity;
     }
 
@@ -91,7 +93,10 @@ class ConfettiManager {
         this.confettiColors = options.confettiColors;
         this.confetti = document.getElementById(options.confettiId);
         this.confettiCtx = this.confetti.getContext("2d");
-        this.container = {w: this.confetti.clientWidth, h: this.confetti.clientHeight};
+        this.container = {
+            w: this.confetti.clientWidth,
+            h: this.confetti.clientHeight
+        };
         this.confetti.width = this.container.w;
         this.confetti.height = this.container.h;
         this.isAnimationActive = true;
@@ -104,7 +109,9 @@ class ConfettiManager {
             : [canvasBox.width * Math.random(), canvasBox.height * Math.random()];
 
         for (let i = 0; i < this.confettiParams.number; i++) {
-            this.confettiElements.push(new Confetti(this.confettiColors, this.confettiParams, this.container, clickPosition));
+            this.confettiElements.push(
+                new Confetti(this.confettiColors, this.confettiParams, this.container, clickPosition)
+            );
         }
     }
 
